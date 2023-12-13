@@ -1,0 +1,18 @@
+# Q3.py
+
+# Load data from file
+with open("sample_AAPL.txt", "r") as f:
+    stock_price = [float(line.strip()) for line in f]
+
+# Initialize variables
+current_max_val = float('-inf')
+max_profit_val = 0
+
+# Find the largest possible profit
+for price in reversed(stock_price):
+    current_max_val = max(current_max_val, price)
+    potential_profit = current_max_val - price
+    max_profit_val = max(potential_profit, max_profit_val)
+
+# Print the result
+print("Largest Possible Profit:", max_profit_val)
